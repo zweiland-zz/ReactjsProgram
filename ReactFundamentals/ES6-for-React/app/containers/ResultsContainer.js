@@ -1,25 +1,26 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Results from '../components/Results'
 import { battle } from '../utils/githubHelpers'
 
-const ResultsContainer = React.createClass({
-  getInitialState () {
-    return {
+class ResultsContainer extends Component {
+  constructor () {
+    super()
+    this.state = {
       isLoading: true,
       scores: []
     }
-  },
+  }
   async componentDidMount () {
     try {
       const scores = await battle(this.props.location.state.playersInfo)
       this.setState({
-        scores: scores,
+        scores,
         isLoading: false
       })
-    } catch (errors) {
-      console.log('Error in ResultsContainer', + error)
+    } catch (error) {
+      console.log('Error in ResultsContainer:', error)
     }
-  },
+  }
   render () {
     return (
       <Results
@@ -28,6 +29,6 @@ const ResultsContainer = React.createClass({
         scores={this.state.scores} />
     )
   }
-});
+}
 
 export default ResultsContainer
