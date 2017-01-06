@@ -24,7 +24,7 @@ function Tie () {
     </MainContainer>
   )
 }
-function Results ({ isLoading, scores, playersInfo }}) {
+function Results ({ isLoading, scores, playersInfo }) {
   if (isLoading === true) {
     return <Loading />
   }
