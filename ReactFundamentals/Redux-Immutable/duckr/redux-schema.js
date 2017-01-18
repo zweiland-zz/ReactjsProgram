@@ -9,24 +9,65 @@
       info: {
         name,
         uid,
-        avatar
+        avatar,
       }
     }
+  },
+  modal: {
+    duck,
+    isOpen
   },
   ducks: {
     [duckId]: {
+      lastUpdated,
       info: {
         avatar,
-        duckIdname,
+        duckId,
+        name,
         text,
         timestamp,
-        uid
+        uid,
       }
     }
   },
-  userDucks: {
+  likeCount: {
+    [duckId]: 0
+  },
+  usersDucks: {
+    isFetching,
+    error,
     [uid]: {
-
+      lastUpdated,
+      duckIds: [duckId, duckId, duckId]
     }
+  },
+  usersLikes: {
+    duckid: true,
+  }
+  feed: {
+    isFetching,
+    error,
+    newDucksAvailable,
+    duckIdsToAdd: [duckId, duckId],
+    duckIds: [duckid, duckId, duckId]
+  }
+  replies: {
+    isFetching,
+    error,
+    [duckId]: {
+      lastUpdated,
+      replies: {
+        [replyId]: {
+          name,
+          reply,
+          uid,
+          timestamp,
+          avatar
+        }
+      }
+    }
+  },
+  listeners: {
+    [listenerId]: true
   }
 }
