@@ -2,14 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 const Main = React.createClass({
-  render() {
+  render () {
     return (
       <p>Hello World!</p>
     )
   }
 })
 
-ReactDom.render(
-  <Main />
+ReactDOM.render(
+  <Main />,
   document.getElementById('app')
 )
